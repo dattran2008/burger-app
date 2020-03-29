@@ -25,7 +25,12 @@ const burger = (props) => {
     }).reduce((prev, curr) => {
         return prev.concat(curr);
     }, []);
-    console.log(temp);
+
+    //If no ingredients were added
+    if (temp.length === 0) {
+        temp = <div>Please add to this burger any ingredient</div>
+    }
+
 
     return (
         <div className={classes.burger}>
@@ -36,7 +41,7 @@ const burger = (props) => {
                     {temp}
                     < BurgerIngredient type='bread-bottom' />
                 </Aux>
-                : alert('Please choose any ingredient')
+                : null
             }
         </div>
     );

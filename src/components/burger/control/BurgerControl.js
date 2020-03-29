@@ -11,14 +11,22 @@ const controls = [
 ]
 
 const BurgerControl = (props) => {
+
     return (
         <div className={classes.BurgerControl}>
-            {controls.map(ctrl => {
-                return <BuildControl 
-                key={ctrl.label} 
-                label={ctrl.label}
-                add={() => props.add(ctrl.type)} />
-            })}
+            {
+                controls.map(ctrl => {
+                    return <BuildControl
+                        key={ctrl.label}
+                        label={ctrl.label}
+                        add={() => props.add(ctrl.type)}
+                        remove={() => props.remove(ctrl.type)}
+                        disable={props.disable[ctrl.type]} />
+                })
+            }
+            <button type='button' className={classes.OrderButton}
+                disabled={props.order}
+                onClick={props.modal}>Order Now</button>
         </div>
     )
 }
