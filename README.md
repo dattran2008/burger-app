@@ -1,5 +1,5 @@
-# burger-app
-=======
+# burger-fastfood-app
+
 This is a project built on React framework about Order Burger Online - just simply use to order your burger like any fastfood restaurants!
 ## Available Scripts
 
