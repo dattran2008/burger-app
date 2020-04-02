@@ -86,6 +86,18 @@ class BurgerBuilder extends Component {
         })
     }
 
+    //close order modal
+    closeOrderModal = () => {
+        this.setState({
+            orderModalState: false,
+        })
+    }
+
+    //continue to confirm to order the burger
+    purchaseContinue = () => {
+        alert('You have purchased this burger successfully!');
+    }
+
     render() {
         //use for check state of remove button
         const disableInfo = {
@@ -98,8 +110,11 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                <Modal show={this.state.orderModalState}>
-                    <OrderSummary sum={this.state.ingredients} />
+                <Modal show={this.state.orderModalState} close={this.closeOrderModal}>
+                    <OrderSummary sum={this.state.ingredients}
+                        price={this.state.totalPrice}
+                        cancel={this.closeOrderModal}
+                        continue={this.purchaseContinue} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BurgerControl add={this.addIngredient}
